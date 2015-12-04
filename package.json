@@ -26,7 +26,7 @@
   "description": "dashboard some sparklines",
   "main": "js/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "",
     "start": "beefy js/index.js:js/browserifybundle.js"
   },
   "author": "Kelsey Dawes kdawes@gmail.com",

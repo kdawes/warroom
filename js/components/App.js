@@ -11,16 +11,13 @@ var moment = require('moment')
 // need to require css or browserify doesn't pull in the bootstrap stuff
 var css = require('../../css/app.css')
 
-var AppDispatcher = require('../dispatcher/Dispatcher')
-var ActionTypes = require('../enums/ActionTypes')
 var UrlDataStore = require('../stores/UrlDataStore')
-var ConfigStore = require('../stores/ConfigStore')
 var MetaStore = require('../stores/MetaStore')
 
 var App = React.createClass({
   _onChange: function () {
     console.log('_onChange')
-    var config = ConfigStore.get()
+
     this.setState({
       tsd: UrlDataStore.get(),
       meta: MetaStore.get()
@@ -28,13 +25,13 @@ var App = React.createClass({
   },
   getInitialState: function () {
     console.log('getInitialState fired')
-    var config = ConfigStore.get()
-    return { config: config }
+
+    return { }
   },
   componentDidMount: function () {
     UrlDataStore.init('')
     MetaStore.init()
-    ConfigStore.addChangeListener(this._onChange)
+
     UrlDataStore.addChangeListener(this._onChange)
     MetaStore.addChangeListener(this._onChange)
   },
@@ -46,7 +43,7 @@ var App = React.createClass({
   },
   componentWillUnmount: function () {
     console.log('componentWillUnmount fired')
-    ConfigStore.removeChangeListener(this._onChange)
+
     UrlDataStore.removeChangeListener(this._onChange)
     MetaStore.removeChangeListener(this._onChange)
   },

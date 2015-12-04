@@ -10,10 +10,10 @@ var DataStore = _.extend({}, EventEmitter.prototype, {
     var teams = null
     setInterval(function go () {
       ;(function () {
-        request.get('https:// ... /api/v0/teams',
+        request.get('https://muncher:80/api/v0/teams',
           function (e, r, b) {
             teams = JSON.parse(b)
-            request.get('https:// ... /api/v0/tsd', function (e, r, b) {
+            request.get('https://muncher:80/api/v0/tsd', function (e, r, b) {
               if (e) {
                 console.error('e', e)
               } else {
